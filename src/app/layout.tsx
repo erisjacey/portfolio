@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import { siteMetadata } from '@/constants/siteMetadata'
 import './globals.css'
 
@@ -73,6 +74,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   )
