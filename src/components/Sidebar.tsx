@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Briefcase, Waves } from 'lucide-react'
-import { siGit, siLeetcode } from 'simple-icons'
+import { GitIcon, LeetCodeIcon } from '@/components/Icons'
 import { socialLinks } from '@/constants/socialLinks'
 import { siteMetadata } from '@/constants/siteMetadata'
 import type { Stats } from '@/lib/fetchStats'
@@ -19,30 +19,6 @@ const navItems = [
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ]
-
-const GitIcon = () => (
-  <svg
-    role="img"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    className="h-5 w-5"
-  >
-    <path d={siGit.path} />
-  </svg>
-)
-
-const LeetCodeIcon = () => (
-  <svg
-    role="img"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    className="h-5 w-5"
-  >
-    <path d={siLeetcode.path} />
-  </svg>
-)
 
 // Simple counter component
 const MiniCounter = ({ value, suffix }: { value: number; suffix: string }) => {
