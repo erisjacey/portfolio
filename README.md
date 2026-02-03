@@ -23,6 +23,9 @@ A modern, minimalist portfolio website built with Next.js 16, featuring a dark u
 - Mobile-first design
 - Dark theme with accessibility in mind
 - SEO optimized (sitemap, robots.txt, Open Graph, Twitter cards, JSON-LD)
+- Dynamic sidebar stats (GitHub commits, LeetCode solved, experience years, dives logged)
+- Work experience timeline with resume download
+- Projects showcase with Personal/OSS Contribution type badges
 
 ## Design Theme
 
@@ -71,16 +74,27 @@ src/
 │   ├── About.tsx
 │   ├── Caustics.tsx
 │   ├── Contact.tsx
-│   ├── Experience.tsx
+│   ├── Experience.tsx    # Work timeline with resume link
 │   ├── Footer.tsx
+│   ├── Icons.tsx         # Shared simple-icons SVG components
 │   ├── MobileHeader.tsx
 │   ├── NeuralMesh.tsx
-│   ├── Projects.tsx
+│   ├── Projects.tsx      # Projects showcase with type badges
 │   ├── Sidebar.tsx
 │   └── Spotlight.tsx
-└── constants/        # Shared constants
-    ├── siteMetadata.ts   # Centralized site config (name, URLs, descriptions)
-    └── socialLinks.tsx   # Social link icons and URLs
+├── constants/        # Shared constants
+│   ├── experience.ts     # Work experience data
+│   ├── siteMetadata.ts   # Centralized site config (name, URLs, descriptions)
+│   ├── socialLinks.tsx   # Social link icons and URLs
+│   ├── statsConfig.ts    # Stats configuration (usernames, career start)
+│   └── projects/         # Projects data (modular structure)
+│       ├── index.ts      # Aggregates and sorts all projects
+│       ├── types.ts      # Shared project types
+│       ├── yagfi.ts      # YAGFI OSS contributions
+│       └── pantrypal.ts  # PantryPal personal project
+└── lib/              # Utility functions
+    ├── fetchStats.ts     # Server-side stats fetching (GitHub, LeetCode APIs)
+    └── formatters.ts     # Formatting utilities (date ranges)
 ```
 
 ## Deployment
@@ -91,11 +105,10 @@ Deploy to Vercel for optimal Next.js performance:
 
 ## Future Enhancements
 
-- Interactive work timeline with real content
-- Project showcase with live demos
 - Photo gallery integration (Cloudinary)
-- Contact form
+- Contact form implementation
 - Subtle bubble animations
+- Open Graph image for social sharing
 
 ## License
 
