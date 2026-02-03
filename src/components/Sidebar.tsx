@@ -3,10 +3,15 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Briefcase, Layers } from 'lucide-react'
+import { Briefcase, Waves } from 'lucide-react'
 import { siGit, siLeetcode } from 'simple-icons'
 import { socialLinks } from '@/constants/socialLinks'
 import { siteMetadata } from '@/constants/siteMetadata'
+import type { Stats } from '@/lib/fetchStats'
+
+interface SidebarProps {
+  stats: Stats
+}
 
 const navItems = [
   { name: 'About', href: '#about' },
@@ -15,48 +20,29 @@ const navItems = [
   { name: 'Contact', href: '#contact' },
 ]
 
-// Condensed stats for sidebar
-const quickStats = [
-  {
-    icon: (
-      <svg
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        className="h-5 w-5"
-      >
-        <path d={siGit.path} />
-      </svg>
-    ),
-    value: 123,
-    suffix: '',
-    label: 'GitHub commits',
-  },
-  {
-    icon: (
-      <svg
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        className="h-5 w-5"
-      >
-        <path d={siLeetcode.path} />
-      </svg>
-    ),
-    value: 1000,
-    suffix: '',
-    label: 'LeetCode solved',
-  },
-  {
-    icon: <Briefcase size={20} />,
-    value: 2.5,
-    suffix: 'y',
-    label: 'of experience',
-  },
-  { icon: <Layers size={20} />, value: 15, suffix: '+', label: 'tech stack' },
-]
+const GitIcon = () => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    className="h-5 w-5"
+  >
+    <path d={siGit.path} />
+  </svg>
+)
+
+const LeetCodeIcon = () => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    className="h-5 w-5"
+  >
+    <path d={siLeetcode.path} />
+  </svg>
+)
 
 // Simple counter component
 const MiniCounter = ({ value, suffix }: { value: number; suffix: string }) => {
@@ -93,8 +79,35 @@ const MiniCounter = ({ value, suffix }: { value: number; suffix: string }) => {
   )
 }
 
-const Sidebar = () => {
+const Sidebar = ({ stats }: SidebarProps) => {
   const [activeSection, setActiveSection] = useState('')
+
+  const quickStats = [
+    {
+      icon: <GitIcon />,
+      value: stats.githubCommits,
+      suffix: '',
+      label: 'GitHub commits',
+    },
+    {
+      icon: <LeetCodeIcon />,
+      value: stats.leetcodeSolved,
+      suffix: '',
+      label: 'LeetCode solved',
+    },
+    {
+      icon: <Briefcase size={20} />,
+      value: stats.yearsOfExperience,
+      suffix: 'y',
+      label: 'experience',
+    },
+    {
+      icon: <Waves size={20} />,
+      value: stats.divesLogged,
+      suffix: '',
+      label: 'dives logged',
+    },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
