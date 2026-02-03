@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { FileText, MapPin } from 'lucide-react'
-import { experiences, formatDateRange } from '@/constants/experience'
+import { experiences } from '@/constants/experience'
+import { formatDateRange } from '@/lib/formatters'
 
 const ExperienceCard = ({
   experience,
