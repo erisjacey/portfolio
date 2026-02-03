@@ -9,7 +9,7 @@ const Contact = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
-        className="text-text-secondary text-md max-w-xl space-y-6 leading-relaxed"
+        className="text-text-secondary text-md space-y-6 leading-relaxed lg:max-w-xl"
       >
         <p className="text-text-secondary mb-8">
           Open to senior software engineering opportunities in Singapore.
