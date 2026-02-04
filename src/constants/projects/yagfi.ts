@@ -32,8 +32,11 @@ export const yagfiContributions: Project[] = [
         url: 'https://github.com/Regyl/yagfi-back',
         type: 'github',
       },
-      // TODO: Add PR link once merged
-      // { label: 'Pull Request', url: '', type: 'pr' },
+      {
+        label: 'Pull Request',
+        url: 'https://github.com/Regyl/yagfi-back/pull/27',
+        type: 'pr',
+      },
     ],
     featured: true,
     createdAt: '2025-02-03',
