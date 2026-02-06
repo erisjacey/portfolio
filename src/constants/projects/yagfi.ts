@@ -8,9 +8,9 @@ export const yagfiContributions: Project[] = [
     name: 'YAGFI - yet another good first issue',
     type: 'oss',
     oneLiner:
-      'Added repository license field to a GitHub "good first issue" aggregator backend',
+      'Contributing license features to a GitHub "good first issue" aggregator backend',
     description:
-      'Implemented end-to-end feature to fetch and expose repository license information, enabling the frontend to display license badges for open-source projects.',
+      'Multiple contributions to an open-source project that helps developers find beginner-friendly issues. Implemented license fetching and filtering capabilities across the full stack.',
     techStack: [
       'Java',
       'Spring Boot',
@@ -20,21 +20,23 @@ export const yagfiContributions: Project[] = [
       'Flyway',
     ],
     highlights: [
-      'Database migration for blue-green table pattern',
-      'GraphQL query extension to fetch license data from GitHub API',
-      'DTO, Entity, and Mapper layer updates',
-      'MyBatis XML mappings for persistence and querying',
-      'REST API response enhancement',
+      'Repository license field: DB migration, GraphQL query, entity/DTO mapping, API response',
+      'License filter: filter DTO, request handling, dynamic SQL with IN/NOT_IN operators',
     ],
     links: [
       {
-        label: 'Repository',
+        label: 'Repo',
         url: 'https://github.com/Regyl/yagfi-back',
         type: 'github',
       },
       {
-        label: 'Pull Request',
+        label: '#27',
         url: 'https://github.com/Regyl/yagfi-back/pull/27',
+        type: 'pr',
+      },
+      {
+        label: '#37',
+        url: 'https://github.com/Regyl/yagfi-back/pull/37',
         type: 'pr',
       },
     ],
