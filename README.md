@@ -1,5 +1,8 @@
 # Portfolio - Eris Jacey Masagca
 
+[![CI](https://github.com/erisjacey/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/erisjacey/portfolio/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A modern, minimalist portfolio website built with Next.js 16, featuring a dark underwater theme with bioluminescent accents. Inspired by the depths of the ocean and the elegance of clean code.
 
 ## Tech Stack
@@ -112,4 +115,4 @@ Deploy to Vercel for optimal Next.js performance:
 
 ## License
 
-© 2026 Eris Jacey Masagca. All rights reserved.
+MIT License - see [LICENSE](LICENSE) for details.
