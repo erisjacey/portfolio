@@ -22,5 +22,5 @@ export interface Project {
 
 export const projectTypeLabels: Record<ProjectType, string> = {
   personal: 'Personal',
-  oss: 'OSS Contribution',
+  oss: 'OSS',
 }
