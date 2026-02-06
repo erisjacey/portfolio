@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { siteMetadata } from '@/constants/siteMetadata'
 import './globals.css'
 
@@ -75,6 +76,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
