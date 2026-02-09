@@ -10,7 +10,7 @@ export const yagfiContributions: Project[] = [
     oneLiner:
       'Contributing license features to a GitHub "good first issue" aggregator backend',
     description:
-      'Multiple contributions to an open-source project that helps developers find beginner-friendly issues. Implemented license fetching and filtering capabilities across the full stack.',
+      'Multiple contributions to an open-source project that helps developers find beginner-friendly issues. Implemented license fetching, filtering, and listing capabilities across the full stack, including the projects first integration test.',
     techStack: [
       'Java',
       'Spring Boot',
@@ -18,10 +18,12 @@ export const yagfiContributions: Project[] = [
       'GraphQL',
       'MyBatis',
       'Flyway',
+      'Testcontainers',
     ],
     highlights: [
       'Repository license field: DB migration, GraphQL query, entity/DTO mapping, API response',
       'License filter: filter DTO, request handling, dynamic SQL with IN/NOT_IN operators',
+      'License list endpoint: cached GET API, MyBatis frequency query, Testcontainers integration test',
     ],
     links: [
       {
@@ -37,6 +39,11 @@ export const yagfiContributions: Project[] = [
       {
         label: '#37',
         url: 'https://github.com/Regyl/yagfi-back/pull/37',
+        type: 'pr',
+      },
+      {
+        label: '#56',
+        url: 'https://github.com/Regyl/yagfi-back/pull/56',
         type: 'pr',
       },
     ],
