@@ -19,7 +19,7 @@ A modern, minimalist portfolio website built with Next.js 16, featuring a dark u
 - Two-column responsive layout (desktop: fixed sidebar + scrolling content)
 - Mouse-tracking spotlight effect (bioluminescent flashlight)
 - Neural mesh circuit board background pattern
-- Animated light caustics (underwater light refraction)
+- WebGL light rays with scroll-based fade (sun at the surface, fading as you dive)
 - Depth gradient background (simulating ocean descent)
 - Bioluminescent glow effects on hover
 - Smooth scroll animations
@@ -75,11 +75,11 @@ src/
 │   └── sitemap.ts    # SEO sitemap generation
 ├── components/       # React components
 │   ├── About.tsx
-│   ├── Caustics.tsx
 │   ├── Contact.tsx
 │   ├── Experience.tsx    # Work timeline with resume link
 │   ├── Footer.tsx
 │   ├── Icons.tsx         # Shared simple-icons SVG components
+│   ├── LightRays.tsx       # WebGL sun rays with scroll-based fade
 │   ├── MobileHeader.tsx
 │   ├── NeuralMesh.tsx
 │   ├── Projects.tsx      # Projects showcase with type badges

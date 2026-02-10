@@ -7,7 +7,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import Spotlight from '@/components/Spotlight'
 import NeuralMesh from '@/components/NeuralMesh'
-import Caustics from '@/components/Caustics'
+import LightRays from '@/components/LightRays'
 import { fetchStats } from '@/lib/fetchStats'
 
 const Home = async () => {
@@ -15,9 +15,10 @@ const Home = async () => {
 
   return (
     <div className="relative mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0">
-      <Caustics />
+      <LightRays />
       <NeuralMesh />
       <Spotlight />
+
       <div className="lg:flex lg:justify-between lg:gap-4">
         {/* Left Column - Fixed Sidebar (Desktop only) */}
         <header className="hidden lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
