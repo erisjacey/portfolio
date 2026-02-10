@@ -17,7 +17,7 @@ A modern, minimalist portfolio website built with Next.js 16, featuring a dark u
 ## Features
 
 - Two-column responsive layout (desktop: fixed sidebar + scrolling content)
-- Mouse-tracking spotlight effect (bioluminescent flashlight)
+- Mouse-tracking spotlight effect (bioluminescent flashlight, desktop only)
 - Neural mesh circuit board background pattern
 - WebGL light rays with scroll-based fade (sun at the surface, fading as you dive)
 - Depth gradient background (simulating ocean descent)
@@ -86,6 +86,7 @@ src/
 │   ├── Sidebar.tsx
 │   └── Spotlight.tsx
 ├── constants/        # Shared constants
+│   ├── layout.ts         # Layout constants (desktop breakpoint)
 │   ├── experience.ts     # Work experience data
 │   ├── siteMetadata.ts   # Centralized site config (name, URLs, descriptions)
 │   ├── socialLinks.tsx   # Social link icons and URLs

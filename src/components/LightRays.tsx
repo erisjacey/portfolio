@@ -3,6 +3,7 @@
 
 import { useRef, useEffect } from 'react'
 import { Renderer, Program, Triangle, Mesh } from 'ogl'
+import { DESKTOP_BREAKPOINT } from '@/constants/layout'
 
 type RaysOrigin =
   | 'top-center'
@@ -16,7 +17,6 @@ type RaysOrigin =
 
 const RAYS_ORIGIN_DESKTOP: RaysOrigin = 'top-left'
 const RAYS_ORIGIN_MOBILE: RaysOrigin = 'top-center'
-const MOBILE_BREAKPOINT = 1024
 const RAYS_COLOR = '#ffffff'
 const RAYS_SPEED = 1
 const LIGHT_SPREAD = 2
@@ -272,7 +272,7 @@ void main() {
       uniforms.iResolution.value = [w, h]
 
       const origin =
-        wCSS >= MOBILE_BREAKPOINT ? RAYS_ORIGIN_DESKTOP : RAYS_ORIGIN_MOBILE
+        wCSS >= DESKTOP_BREAKPOINT ? RAYS_ORIGIN_DESKTOP : RAYS_ORIGIN_MOBILE
       const { anchor, dir } = getAnchorAndDir(origin, w, h)
       uniforms.rayPos.value = anchor
       uniforms.rayDir.value = dir
