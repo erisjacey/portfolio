@@ -29,6 +29,7 @@ const MOUSE_INFLUENCE = 0
 const NOISE_AMOUNT = 0
 const DISTORTION = 0
 const MOBILE_INTENSITY = 0.3
+const MOBILE_LIGHT_SPREAD = 0.5
 
 const hexToRgb = (hex: string): [number, number, number] => {
   const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
@@ -279,6 +280,7 @@ void main() {
       const origin = isDesktop ? RAYS_ORIGIN_DESKTOP : RAYS_ORIGIN_MOBILE
       const { anchor, dir } = getAnchorAndDir(origin, w, h)
       uniforms.intensity.value = isDesktop ? 1.0 : MOBILE_INTENSITY
+      uniforms.lightSpread.value = isDesktop ? LIGHT_SPREAD : MOBILE_LIGHT_SPREAD
       uniforms.rayPos.value = anchor
       uniforms.rayDir.value = dir
     }
