@@ -280,7 +280,9 @@ void main() {
       const origin = isDesktop ? RAYS_ORIGIN_DESKTOP : RAYS_ORIGIN_MOBILE
       const { anchor, dir } = getAnchorAndDir(origin, w, h)
       uniforms.intensity.value = isDesktop ? 1.0 : MOBILE_INTENSITY
-      uniforms.lightSpread.value = isDesktop ? LIGHT_SPREAD : MOBILE_LIGHT_SPREAD
+      uniforms.lightSpread.value = isDesktop
+        ? LIGHT_SPREAD
+        : MOBILE_LIGHT_SPREAD
       uniforms.rayPos.value = anchor
       uniforms.rayDir.value = dir
     }
