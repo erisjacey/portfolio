@@ -28,6 +28,7 @@ const FOLLOW_MOUSE = true
 const MOUSE_INFLUENCE = 0
 const NOISE_AMOUNT = 0
 const DISTORTION = 0
+const MOBILE_INTENSITY = 0.3
 
 const hexToRgb = (hex: string): [number, number, number] => {
   const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
@@ -86,6 +87,7 @@ interface Uniforms {
   noiseAmount: { value: number }
   distortion: { value: number }
   scrollFade: { value: number }
+  intensity: { value: number }
 }
 
 const LightRays = () => {
@@ -145,6 +147,7 @@ uniform float mouseInfluence;
 uniform float noiseAmount;
 uniform float distortion;
 uniform float scrollFade;
+uniform float intensity;
 
 varying vec2 vUv;
 
@@ -215,7 +218,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   fragColor.rgb *= raysColor;
 
   // Fade out as user scrolls down (diving deeper)
-  fragColor *= scrollFade;
+  fragColor *= scrollFade * intensity;
 }
 
 void main() {
@@ -243,6 +246,7 @@ void main() {
       noiseAmount: { value: NOISE_AMOUNT },
       distortion: { value: DISTORTION },
       scrollFade: { value: 1.0 },
+      intensity: { value: 1.0 },
     }
     uniformsRef.current = uniforms
 
@@ -271,9 +275,10 @@ void main() {
 
       uniforms.iResolution.value = [w, h]
 
-      const origin =
-        wCSS >= DESKTOP_BREAKPOINT ? RAYS_ORIGIN_DESKTOP : RAYS_ORIGIN_MOBILE
+      const isDesktop = wCSS >= DESKTOP_BREAKPOINT
+      const origin = isDesktop ? RAYS_ORIGIN_DESKTOP : RAYS_ORIGIN_MOBILE
       const { anchor, dir } = getAnchorAndDir(origin, w, h)
+      uniforms.intensity.value = isDesktop ? 1.0 : MOBILE_INTENSITY
       uniforms.rayPos.value = anchor
       uniforms.rayDir.value = dir
     }
