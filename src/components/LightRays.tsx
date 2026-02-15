@@ -28,7 +28,7 @@ const FOLLOW_MOUSE = true
 const MOUSE_INFLUENCE = 0
 const NOISE_AMOUNT = 0
 const DISTORTION = 0
-const MOBILE_INTENSITY = 0.3
+const MOBILE_INTENSITY = 0.6
 const MOBILE_LIGHT_SPREAD = 0.5
 
 const hexToRgb = (hex: string): [number, number, number] => {
