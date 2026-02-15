@@ -69,6 +69,9 @@ const jsonLd = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <meta name="darkreader-lock" />
+      </head>
       <body>
         <script
           type="application/ld+json"
