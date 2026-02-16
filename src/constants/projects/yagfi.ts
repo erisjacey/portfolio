@@ -19,14 +19,14 @@ export const yagfiContributions: Contribution[] = [
     prUrl: 'https://github.com/Regyl/yagfi-back/pull/83',
     prTitle: 'User country detection',
     description:
-      'Integrated ipinfo.io API to detect user country from IP address, enabling country-aware repository filtering. Implemented Feign client with Caffeine LRU cache and graceful error handling.',
+      'Integrated IPinfo API to detect user country from IP address, enabling country-aware repository filtering. Implemented Feign client with Caffeine LRU cache and graceful error handling.',
     highlights: [
       'Feign client integration with ipinfo.io API for IP-to-country resolution',
       'Caffeine LRU cache with dual cache manager pattern for efficient lookups',
       'Graceful error handling with fallback behavior when API is unavailable',
       '4 unit tests covering cache hits, misses, and error scenarios',
     ],
-    additionalTech: ['Feign', 'Caffeine', 'ipinfo.io API'],
+    additionalTech: ['Feign', 'Caffeine', 'IPinfo'],
     createdAt: '2026-02-16',
   },
   {
