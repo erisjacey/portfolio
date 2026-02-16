@@ -9,6 +9,12 @@ const sitemap = (): MetadataRoute.Sitemap => {
       changeFrequency: 'monthly',
       priority: 1,
     },
+    {
+      url: `${siteMetadata.siteUrl}/contributions`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ]
 }
 
