@@ -1,5 +1,5 @@
 import { Linkedin, Mail } from 'lucide-react'
-import { GitHubIcon } from '@/components/Icons'
+import { GitHubIcon } from '@/components/shared'
 
 export const socialLinks = [
   {

@@ -1,13 +1,12 @@
-import Sidebar from '@/components/Sidebar'
-import MobileHeader from '@/components/MobileHeader'
-import About from '@/components/About'
-import Experience from '@/components/Experience'
-import Projects from '@/components/Projects'
-import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
-import Spotlight from '@/components/Spotlight'
-import NeuralMesh from '@/components/NeuralMesh'
-import LightRays from '@/components/LightRays'
+import { Sidebar, MobileHeader } from '@/components/layout'
+import {
+  About,
+  Experience,
+  Projects,
+  Contact,
+  Footer,
+} from '@/components/sections'
+import { Spotlight, NeuralMesh, LightRays } from '@/components/decorations'
 import { fetchStats } from '@/lib/fetchStats'
 
 const Home = async () => {

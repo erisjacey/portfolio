@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ExternalLink, GitFork, GitPullRequest } from 'lucide-react'
-import { GitHubIcon } from '@/components/Icons'
+import { GitHubIcon } from '@/components/shared'
 import { projects, projectTypeLabels, type Project } from '@/constants/projects'
 
 const getLinkIcon = (type: string) => {
