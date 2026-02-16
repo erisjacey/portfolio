@@ -29,6 +29,7 @@ A modern, minimalist portfolio website built with Next.js 16, featuring a dark u
 - Dynamic sidebar stats (GitHub commits, LeetCode solved, experience years, dives logged)
 - Work experience timeline with resume download
 - Projects showcase with Personal/OSS Contribution type badges
+- Dedicated `/contributions` page with individual per-PR cards and staggered animations
 
 ## Design Theme
 
@@ -67,38 +68,46 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ```
 src/
-├── app/              # Next.js App Router
-│   ├── globals.css   # Global styles & Tailwind config
-│   ├── layout.tsx    # Root layout + SEO metadata
-│   ├── page.tsx      # Home page
-│   ├── robots.ts     # SEO robots.txt generation
-│   └── sitemap.ts    # SEO sitemap generation
-├── components/       # React components
-│   ├── About.tsx
-│   ├── Contact.tsx
-│   ├── Experience.tsx    # Work timeline with resume link
-│   ├── Footer.tsx
-│   ├── Icons.tsx         # Shared simple-icons SVG components
-│   ├── LightRays.tsx       # WebGL sun rays with scroll-based fade
-│   ├── MobileHeader.tsx
-│   ├── NeuralMesh.tsx
-│   ├── Projects.tsx      # Projects showcase with type badges
-│   ├── Sidebar.tsx
-│   └── Spotlight.tsx
-├── constants/        # Shared constants
-│   ├── layout.ts         # Layout constants (desktop breakpoint)
-│   ├── experience.ts     # Work experience data
-│   ├── siteMetadata.ts   # Centralized site config (name, URLs, descriptions)
-│   ├── socialLinks.tsx   # Social link icons and URLs
-│   ├── statsConfig.ts    # Stats configuration (usernames, career start)
-│   └── projects/         # Projects data (modular structure)
-│       ├── index.ts      # Aggregates and sorts all projects
-│       ├── types.ts      # Shared project types
-│       ├── yagfi.ts      # YAGFI OSS contributions
-│       └── pantrypal.ts  # PantryPal personal project
-└── lib/              # Utility functions
-    ├── fetchStats.ts     # Server-side stats fetching (GitHub, LeetCode APIs)
-    └── formatters.ts     # Formatting utilities (date ranges)
+├── app/                    # Next.js App Router
+│   ├── globals.css         # Global styles & Tailwind config
+│   ├── layout.tsx          # Root layout + SEO metadata
+│   ├── page.tsx            # Home page
+│   ├── robots.ts           # SEO robots.txt generation
+│   ├── sitemap.ts          # SEO sitemap generation
+│   └── contributions/      # OSS contributions page
+│       ├── page.tsx
+│       └── ContributionCards.tsx
+├── components/             # React components
+│   ├── sections/           # Page content sections
+│   │   ├── About.tsx
+│   │   ├── Experience.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   ├── decorations/        # Visual effects
+│   │   ├── Spotlight.tsx
+│   │   ├── LightRays.tsx
+│   │   └── NeuralMesh.tsx
+│   ├── layout/             # Layout chrome
+│   │   ├── Sidebar.tsx
+│   │   └── MobileHeader.tsx
+│   └── shared/             # Reusable components
+│       ├── Icons.tsx
+│       └── ArrowLink.tsx
+├── constants/              # Shared constants
+│   ├── layout.ts           # Layout constants (desktop breakpoint)
+│   ├── experience.ts       # Work experience data
+│   ├── siteMetadata.ts     # Centralized site config (name, URLs, descriptions)
+│   ├── socialLinks.tsx     # Social link icons and URLs
+│   ├── statsConfig.ts      # Stats configuration (usernames, career start)
+│   └── projects/           # Projects data (modular structure)
+│       ├── index.ts        # Aggregates projects + contributions
+│       ├── types.ts        # Project and Contribution interfaces
+│       ├── yagfi.ts        # YAGFI OSS contributions (per-PR + summary)
+│       └── pantrypal.ts    # PantryPal personal project
+└── lib/                    # Utility functions
+    ├── fetchStats.ts       # Server-side stats fetching (GitHub, LeetCode APIs)
+    └── formatters.ts       # Utilities (date formatting, sorting)
 ```
 
 ## Deployment
