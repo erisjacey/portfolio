@@ -27,20 +27,28 @@ const ContributionCard = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group border-border bg-surface hover:border-accent/30 rounded-lg border p-6"
     >
-      {/* Repo name + PR badge */}
-      <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
-        <div>
-          <p className="text-text-secondary mb-1 font-mono text-xs">
-            {contribution.repoName} · {formatDate(contribution.createdAt)}
-          </p>
-          <h3 className="text-text-primary group-hover:text-accent text-lg font-semibold transition-colors">
-            {contribution.prTitle}
-          </h3>
+      {/* Repo name + badge + date */}
+      <div className="mb-3">
+        <div className="mb-1 flex items-start justify-between gap-2">
+          {/* Mobile: repo name + date stacked | Desktop: repo · date inline */}
+          <div className="text-text-secondary font-mono text-xs">
+            <p>
+              {contribution.repoName}
+              <span className="hidden lg:inline">
+                {' '}
+                · {formatDate(contribution.createdAt)}
+              </span>
+            </p>
+            <p className="lg:hidden">{formatDate(contribution.createdAt)}</p>
+          </div>
+          <span className="bg-success/10 text-success border-success/20 inline-flex flex-shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-xs font-medium">
+            <GitPullRequest className="h-3 w-3" />
+            PR #{contribution.prNumber}
+          </span>
         </div>
-        <span className="bg-success/10 text-success border-success/20 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-xs font-medium">
-          <GitPullRequest className="h-3 w-3" />
-          PR #{contribution.prNumber}
-        </span>
+        <h3 className="text-text-primary group-hover:text-accent text-lg font-semibold transition-colors">
+          {contribution.prTitle}
+        </h3>
       </div>
 
       {/* Description */}
