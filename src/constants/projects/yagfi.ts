@@ -1,53 +1,98 @@
 // YAGFI - yet another good first issue
 // https://github.com/Regyl/yagfi-back
 
-import type { Project } from './types'
+import type { Contribution, Project } from './types'
 
-export const yagfiContributions: Project[] = [
+const YAGFI_REPO = {
+  repoName: 'YAGFI - yet another good first issue',
+  repoUrl: 'https://github.com/Regyl/yagfi-back',
+  repoOneLiner:
+    'Contributing to a GitHub "good first issue" aggregator backend',
+  repoTechStack: [
+    'Java',
+    'Spring Boot',
+    'PostgreSQL',
+    'GraphQL',
+    'MyBatis',
+    'Flyway',
+  ],
+}
+
+// Individual contributions (one per PR, newest first)
+export const yagfiContributions: Contribution[] = [
   {
-    name: 'YAGFI - yet another good first issue',
-    type: 'oss',
-    oneLiner:
-      'Contributing license features to a GitHub "good first issue" aggregator backend',
+    ...YAGFI_REPO,
+    prNumber: 83,
+    prUrl: 'https://github.com/Regyl/yagfi-back/pull/83',
+    prTitle: 'User country detection',
     description:
-      'Multiple contributions to an open-source project that helps developers find beginner-friendly issues. Implemented license fetching, filtering, and listing capabilities across the full stack, including the projects first integration test.',
-    techStack: [
-      'Java',
-      'Spring Boot',
-      'PostgreSQL',
-      'GraphQL',
-      'MyBatis',
-      'Flyway',
-      'Testcontainers',
-    ],
+      'Integrated ipinfo.io API to detect user country from IP address, enabling country-aware repository filtering. Implemented Feign client with Caffeine LRU cache and graceful error handling.',
     highlights: [
-      'Repository license field: DB migration, GraphQL query, entity/DTO mapping, API response',
-      'License filter: filter DTO, request handling, dynamic SQL with IN/NOT_IN operators',
-      'License list endpoint: cached GET API, MyBatis frequency query, Testcontainers integration test',
+      'Feign client integration with ipinfo.io API for IP-to-country resolution',
+      'Caffeine LRU cache with dual cache manager pattern for efficient lookups',
+      'Graceful error handling with fallback behavior when API is unavailable',
+      '4 unit tests covering cache hits, misses, and error scenarios',
     ],
-    links: [
-      {
-        label: 'Repo',
-        url: 'https://github.com/Regyl/yagfi-back',
-        type: 'github',
-      },
-      {
-        label: '#27',
-        url: 'https://github.com/Regyl/yagfi-back/pull/27',
-        type: 'pr',
-      },
-      {
-        label: '#37',
-        url: 'https://github.com/Regyl/yagfi-back/pull/37',
-        type: 'pr',
-      },
-      {
-        label: '#56',
-        url: 'https://github.com/Regyl/yagfi-back/pull/56',
-        type: 'pr',
-      },
+    additionalTech: ['Feign', 'Caffeine', 'ipinfo.io API'],
+    createdAt: '2026-02-16',
+  },
+  {
+    ...YAGFI_REPO,
+    prNumber: 56,
+    prUrl: 'https://github.com/Regyl/yagfi-back/pull/56',
+    prTitle: 'License list endpoint with caching',
+    description:
+      "Added a cached GET endpoint to list all available licenses, with MyBatis frequency query and the project's first integration test using Testcontainers.",
+    highlights: [
+      'Cached GET API for license listing',
+      'MyBatis frequency query for license aggregation',
+      'Testcontainers integration test (project first)',
     ],
-    featured: true,
+    additionalTech: ['Testcontainers'],
+    createdAt: '2025-02-03',
+  },
+  {
+    ...YAGFI_REPO,
+    prNumber: 37,
+    prUrl: 'https://github.com/Regyl/yagfi-back/pull/37',
+    prTitle: 'License filtering with dynamic SQL',
+    description:
+      'Implemented license-based filtering for repository search with dynamic SQL operators.',
+    highlights: [
+      'Filter DTO with license criteria',
+      'Dynamic SQL with IN/NOT_IN operators',
+      'Request handling and validation',
+    ],
+    createdAt: '2025-02-03',
+  },
+  {
+    ...YAGFI_REPO,
+    prNumber: 27,
+    prUrl: 'https://github.com/Regyl/yagfi-back/pull/27',
+    prTitle: 'Repository license field',
+    description:
+      'Added license information to repository entities, including database migration and GraphQL query support.',
+    highlights: [
+      'DB migration for license column',
+      'GraphQL query extension',
+      'Entity/DTO mapping and API response',
+    ],
     createdAt: '2025-02-03',
   },
 ]
+
+// Summary card for the homepage Projects section
+export const yagfiSummary: Project = {
+  name: YAGFI_REPO.repoName,
+  type: 'oss',
+  oneLiner: YAGFI_REPO.repoOneLiner,
+  description:
+    "Multiple contributions to an open-source project that helps developers find beginner-friendly issues. Implemented license features, country detection, and the project's first integration test.",
+  techStack: YAGFI_REPO.repoTechStack,
+  links: [
+    { label: 'Repo', url: YAGFI_REPO.repoUrl, type: 'github' },
+    { label: 'Project', url: 'http://yagfi.com/', type: 'external' },
+  ],
+  featured: true,
+  createdAt: '2026-02-16',
+}

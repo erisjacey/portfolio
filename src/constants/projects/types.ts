@@ -20,6 +20,20 @@ export interface Project {
   createdAt: string // ISO date string (YYYY-MM-DD) for sorting
 }
 
+export interface Contribution {
+  repoName: string
+  repoUrl: string
+  repoOneLiner: string
+  repoTechStack: string[]
+  prNumber: number
+  prUrl: string
+  prTitle: string
+  description: string
+  highlights: string[]
+  additionalTech?: string[]
+  createdAt: string // ISO date string (YYYY-MM-DD) for sorting
+}
+
 export const projectTypeLabels: Record<ProjectType, string> = {
   personal: 'Personal',
   oss: 'OSS',
