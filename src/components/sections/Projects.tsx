@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ExternalLink, GitFork, GitPullRequest } from 'lucide-react'
-import { GitHubIcon } from '@/components/shared'
-import Link from 'next/link'
+import { GitHubIcon, ArrowLink } from '@/components/shared'
 import {
   projects,
   contributions,
@@ -152,12 +151,9 @@ const Projects = () => {
         </div>
 
         {/* CTA to contributions page */}
-        <Link
-          href="/contributions"
-          className="text-accent hover:text-accent/80 inline-flex items-center gap-1.5 font-mono text-sm transition-colors"
-        >
-          View all {contributions.length} contributions →
-        </Link>
+        <ArrowLink href="/contributions">
+          View all {contributions.length} contributions
+        </ArrowLink>
 
         {/* Personal cards */}
         <div className="space-y-6">

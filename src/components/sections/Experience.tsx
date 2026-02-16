@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { FileText, MapPin } from 'lucide-react'
+import { ArrowLink } from '@/components/shared'
 import { experiences } from '@/constants/experience'
 import { formatDateRange } from '@/lib/formatters'
 
@@ -104,16 +105,13 @@ const Experience = () => {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="pt-4"
         >
-          <a
+          <ArrowLink
             href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text-secondary hover:text-accent glow-on-hover inline-flex items-center gap-2 font-mono text-sm transition-colors"
+            external
+            icon={<FileText className="h-4 w-4" />}
           >
-            <FileText className="h-4 w-4" />
-            <span>View Full Résumé</span>
-            <span className="text-accent">→</span>
-          </a>
+            View Full Résumé
+          </ArrowLink>
         </motion.div>
       </motion.div>
     </section>
