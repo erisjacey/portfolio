@@ -20,33 +20,35 @@ const ContributionsPage = () => {
       <main className="mx-auto max-w-3xl pt-0 lg:py-24">
         {/* Back link */}
         <Link
-          href="/"
+          href="/#projects"
           className="text-text-secondary hover:text-accent mb-8 inline-flex items-center gap-2 font-mono text-sm transition-colors"
         >
           ← Back to home
         </Link>
 
         {/* Page header */}
-        <h1 className="mb-2 text-3xl font-bold md:text-4xl">
-          OSS Contributions
-        </h1>
-        <p className="text-text-secondary mb-4 text-lg">
-          Open-source pull requests and contributions.
-        </p>
+        <div className="mb-12 text-center lg:text-left">
+          <h1 className="mb-2 text-3xl font-bold md:text-4xl">
+            OSS Contributions
+          </h1>
+          <p className="text-text-secondary mb-4 text-lg">
+            Open-source pull requests and contributions.
+          </p>
 
-        {/* Project link */}
-        <p className="text-text-secondary mb-12 text-sm">
-          Contributing to{' '}
-          <a
-            href="http://yagfi.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:text-accent/80 transition-colors"
-          >
-            YAGFI
-          </a>{' '}
-          — a GitHub &ldquo;good first issue&rdquo; aggregator.
-        </p>
+          {/* Project link */}
+          <p className="text-text-secondary text-sm">
+            Contributing to{' '}
+            <a
+              href="http://yagfi.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent/80 transition-colors"
+            >
+              YAGFI
+            </a>{' '}
+            — a GitHub &ldquo;good first issue&rdquo; aggregator.
+          </p>
+        </div>
 
         {/* Contribution cards */}
         <ContributionCards contributions={contributions} />
