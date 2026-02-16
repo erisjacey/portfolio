@@ -8,14 +8,7 @@ const YAGFI_REPO = {
   repoUrl: 'https://github.com/Regyl/yagfi-back',
   repoOneLiner:
     'Contributing to a GitHub "good first issue" aggregator backend',
-  repoTechStack: [
-    'Java',
-    'Spring Boot',
-    'PostgreSQL',
-    'GraphQL',
-    'MyBatis',
-    'Flyway',
-  ],
+  repoTechStack: ['Java', 'Spring Boot'],
 }
 
 // Individual contributions (one per PR, newest first)
@@ -48,8 +41,8 @@ export const yagfiContributions: Contribution[] = [
       'MyBatis frequency query for license aggregation',
       'Testcontainers integration test (project first)',
     ],
-    additionalTech: ['Testcontainers'],
-    createdAt: '2025-02-03',
+    additionalTech: ['MyBatis', 'Testcontainers'],
+    createdAt: '2026-02-09',
   },
   {
     ...YAGFI_REPO,
@@ -63,7 +56,8 @@ export const yagfiContributions: Contribution[] = [
       'Dynamic SQL with IN/NOT_IN operators',
       'Request handling and validation',
     ],
-    createdAt: '2025-02-03',
+    additionalTech: ['MyBatis'],
+    createdAt: '2026-02-06',
   },
   {
     ...YAGFI_REPO,
@@ -77,7 +71,8 @@ export const yagfiContributions: Contribution[] = [
       'GraphQL query extension',
       'Entity/DTO mapping and API response',
     ],
-    createdAt: '2025-02-03',
+    additionalTech: ['PostgreSQL', 'GraphQL', 'Flyway'],
+    createdAt: '2026-02-03',
   },
 ]
 

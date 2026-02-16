@@ -1,4 +1,4 @@
-// Formatting utilities
+// Formatting and sorting utilities
 
 export const formatDateRange = (
   startDate: string,
@@ -15,3 +15,21 @@ export const formatDateRange = (
 
   return `${start} — ${end}`
 }
+
+export const formatDate = (dateStr: string): string => {
+  const date = new Date(dateStr)
+  const day = date.getUTCDate()
+  const month = date.toLocaleDateString('en-US', {
+    month: 'short',
+    timeZone: 'UTC',
+  })
+  const year = date.getUTCFullYear()
+  return `${day} ${month}, ${year}`
+}
+
+export const sortByDateDesc = <T extends { createdAt: string }>(
+  items: T[],
+): T[] =>
+  [...items].sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+  )
