@@ -3,7 +3,13 @@
 import { motion } from 'framer-motion'
 import { ExternalLink, GitFork, GitPullRequest } from 'lucide-react'
 import { GitHubIcon } from '@/components/shared'
-import { projects, projectTypeLabels, type Project } from '@/constants/projects'
+import Link from 'next/link'
+import {
+  projects,
+  contributions,
+  projectTypeLabels,
+  type Project,
+} from '@/constants/projects'
 
 const getLinkIcon = (type: string) => {
   switch (type) {
@@ -67,10 +73,10 @@ const ProjectCard = ({
         {project.description}
       </p>
 
-      {/* Highlights (for OSS contributions) */}
+      {/* Highlights */}
       {project.highlights && project.highlights.length > 0 && (
         <div className="mb-4">
-          <p className="text-text-secondary font-semiboldwider uppercaer uppsecase mb-2 text-xs">
+          <p className="text-text-secondary mb-2 text-xs font-semibold tracking-wider uppercase">
             What I Built
           </p>
           <ul className="text-text-secondary space-y-1 text-sm">
@@ -126,6 +132,9 @@ const ProjectCard = ({
 }
 
 const Projects = () => {
+  const ossProjects = projects.filter((p) => p.type === 'oss')
+  const personalProjects = projects.filter((p) => p.type === 'personal')
+
   return (
     <section id="projects" className="section-spacing">
       <motion.div
@@ -135,9 +144,29 @@ const Projects = () => {
         transition={{ duration: 0.6 }}
         className="text-text-secondary text-md space-y-6 leading-relaxed lg:max-w-xl"
       >
+        {/* OSS cards */}
         <div className="space-y-6">
-          {projects.map((project, index) => (
+          {ossProjects.map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
+          ))}
+        </div>
+
+        {/* CTA to contributions page */}
+        <Link
+          href="/contributions"
+          className="text-accent hover:text-accent/80 inline-flex items-center gap-1.5 font-mono text-sm transition-colors"
+        >
+          View all {contributions.length} contributions →
+        </Link>
+
+        {/* Personal cards */}
+        <div className="space-y-6">
+          {personalProjects.map((project, index) => (
+            <ProjectCard
+              key={project.name}
+              project={project}
+              index={index + ossProjects.length}
+            />
           ))}
         </div>
       </motion.div>
