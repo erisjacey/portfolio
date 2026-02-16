@@ -40,7 +40,7 @@ const ContributionCard = ({
       <div className="mb-3">
         <div className="mb-1 flex items-start justify-between gap-2">
           {/* Mobile: repo name + date stacked | Desktop: repo · date inline */}
-          <div className="text-text-secondary font-mono text-xs">
+          <div className="text-text-secondary flex flex-col gap-1 font-mono text-xs lg:gap-0">
             <p>
               {contribution.repoName}
               <span className="hidden lg:inline">
