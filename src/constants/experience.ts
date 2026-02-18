@@ -32,6 +32,7 @@ export const experiences: Experience[] = [
       'Kafka',
       'React',
       'Spring AI',
+      'Grafana',
     ],
   },
 ]
