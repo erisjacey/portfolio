@@ -20,7 +20,7 @@ const ContributionsPage = () => {
       <main className="mx-auto max-w-3xl pt-0 lg:py-24">
         {/* Back link */}
         <Link
-          href="/#projects"
+          href="/#contributions"
           className="text-text-secondary hover:text-accent mb-8 inline-flex items-center gap-2 font-mono text-sm transition-colors"
         >
           ← Back to home

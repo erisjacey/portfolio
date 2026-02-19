@@ -16,6 +16,7 @@ interface SidebarProps {
 const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#work' },
+  { name: 'Contributions', href: '#contributions' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ]
