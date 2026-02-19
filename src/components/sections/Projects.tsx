@@ -3,11 +3,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink, GitPullRequest } from 'lucide-react'
 import { GitHubIcon } from '@/components/shared'
-import {
-  personalProjects,
-  projectTypeLabels,
-  type Project,
-} from '@/constants/projects'
+import { projects, type Project } from '@/constants/projects'
 
 const getLinkIcon = (type: string) => {
   switch (type) {
@@ -43,7 +39,7 @@ const ProjectCard = ({
           {project.name}
         </h3>
         <span className="bg-accent/10 text-accent border-accent/20 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-xs font-medium">
-          {projectTypeLabels[project.type]}
+          Personal
         </span>
       </div>
 
@@ -126,7 +122,7 @@ const Projects = () => {
         className="text-text-secondary text-md space-y-6 leading-relaxed lg:max-w-xl"
       >
         <div className="space-y-6">
-          {personalProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
           ))}
         </div>

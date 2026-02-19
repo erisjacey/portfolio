@@ -5,7 +5,6 @@ import type { Project } from './types'
 export const pantrypalProjects: Project[] = [
   {
     name: 'PantryPal',
-    type: 'personal',
     oneLiner: 'Smart pantry inventory manager',
     description:
       'A mobile-first application to track pantry items, manage expiration dates, and reduce food waste with smart notifications.',

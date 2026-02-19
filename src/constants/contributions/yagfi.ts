@@ -1,7 +1,7 @@
 // YAGFI - yet another good first issue
 // https://github.com/Regyl/yagfi-back
 
-import type { Contribution, Project } from './types'
+import type { Contribution, ContributionSummary } from './types'
 
 const YAGFI_REPO = {
   repoName: 'YAGFI - yet another good first issue',
@@ -76,10 +76,9 @@ export const yagfiContributions: Contribution[] = [
   },
 ]
 
-// Summary card for the homepage Projects section
-export const yagfiSummary: Project = {
+// Summary card for the homepage Contributions section
+export const yagfiSummary: ContributionSummary = {
   name: YAGFI_REPO.repoName,
-  type: 'oss',
   oneLiner: YAGFI_REPO.repoOneLiner,
   description:
     "Multiple contributions to an open-source project that helps developers find beginner-friendly issues. Implemented license features, country detection, and the project's first integration test.",
@@ -88,6 +87,5 @@ export const yagfiSummary: Project = {
     { label: 'Project', url: 'http://yagfi.com/', type: 'external' },
     { label: 'Repo', url: YAGFI_REPO.repoUrl, type: 'github' },
   ],
-  featured: true,
   createdAt: '2026-02-16',
 }

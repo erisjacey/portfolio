@@ -2,20 +2,11 @@
 
 import { pantrypalProjects } from './pantrypal'
 import { takeleavesgProjects } from './takeleavesg'
-import { yagfiSummary, yagfiContributions } from './yagfi'
 import { sortByDateDesc } from '@/lib/formatters'
 
-export type { Project, ProjectLink, ProjectType, Contribution } from './types'
-export { projectTypeLabels } from './types'
+export type { Project, ProjectLink } from './types'
 
-// Homepage: OSS summary cards
-export const ossProjects = sortByDateDesc([yagfiSummary])
-
-// Homepage: Personal project cards
-export const personalProjects = sortByDateDesc([
+export const projects = sortByDateDesc([
   ...takeleavesgProjects,
   ...pantrypalProjects,
 ])
-
-// All contributions for the /contributions page (sorted newest first)
-export const contributions = sortByDateDesc(yagfiContributions)

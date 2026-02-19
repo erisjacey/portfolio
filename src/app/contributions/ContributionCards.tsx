@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { GitPullRequest } from 'lucide-react'
 import { GitHubIcon } from '@/components/shared'
-import type { Contribution } from '@/constants/projects'
+import type { Contribution } from '@/constants/contributions'
 import { formatDate } from '@/lib/formatters'
 
 const getCardId = (contribution: Contribution) =>

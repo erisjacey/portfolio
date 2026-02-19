@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Spotlight, NeuralMesh, LightRays } from '@/components/decorations'
-import { contributions } from '@/constants/projects'
+import { contributions } from '@/constants/contributions'
 import ContributionCards from './ContributionCards'
 
 export const metadata: Metadata = {

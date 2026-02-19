@@ -5,7 +5,6 @@ import type { Project } from './types'
 export const takeleavesgProjects: Project[] = [
   {
     name: 'TakeLeave.sg',
-    type: 'personal',
     oneLiner: 'PTO tracking and forecasting for Singapore workers',
     description:
       'A personal leave tracking web app with running balance forecasts, a what-if simulator for planning hypothetical leave, and JSON export/import for backups. All data stays in localStorage — no backend, no auth.',

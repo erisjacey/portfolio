@@ -1,29 +1,30 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, GitFork, GitPullRequest } from 'lucide-react'
+import { ExternalLink, GitFork } from 'lucide-react'
 import { GitHubIcon, ArrowLink } from '@/components/shared'
 import {
-  ossProjects,
+  contributionSummaries,
   contributions,
-  projectTypeLabels,
-  type Project,
-} from '@/constants/projects'
+  type ContributionSummary,
+} from '@/constants/contributions'
 
 const getLinkIcon = (type: string) => {
   switch (type) {
     case 'github':
       return <GitHubIcon className="h-4 w-4" />
-    case 'pr':
-      return <GitPullRequest className="h-4 w-4" />
-    case 'demo':
-      return <ExternalLink className="h-4 w-4" />
     default:
       return <ExternalLink className="h-4 w-4" />
   }
 }
 
-const OssCard = ({ project, index }: { project: Project; index: number }) => {
+const OssCard = ({
+  summary,
+  index,
+}: {
+  summary: ContributionSummary
+  index: number
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -35,27 +36,27 @@ const OssCard = ({ project, index }: { project: Project; index: number }) => {
       {/* Header: Name + Type Badge */}
       <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
         <h3 className="text-text-primary group-hover:text-accent text-lg font-semibold transition-colors">
-          {project.name}
+          {summary.name}
         </h3>
         <span className="bg-success/10 text-success border-success/20 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-xs font-medium">
           <GitFork className="h-3 w-3" />
-          {projectTypeLabels[project.type]}
+          OSS
         </span>
       </div>
 
       {/* One-liner */}
       <p className="text-text-secondary mb-3 font-mono text-sm">
-        {project.oneLiner}
+        {summary.oneLiner}
       </p>
 
       {/* Description */}
       <p className="text-text-secondary mb-4 text-sm leading-relaxed">
-        {project.description}
+        {summary.description}
       </p>
 
       {/* Tech Stack */}
       <div className="mb-4 flex flex-wrap gap-2">
-        {project.techStack.map((tech) => (
+        {summary.techStack.map((tech) => (
           <span
             key={tech}
             className="text-accent bg-accent/5 rounded px-2 py-1 font-mono text-xs"
@@ -66,9 +67,9 @@ const OssCard = ({ project, index }: { project: Project; index: number }) => {
       </div>
 
       {/* Links */}
-      {project.links.length > 0 && (
+      {summary.links.length > 0 && (
         <div className="flex flex-wrap gap-3">
-          {project.links.map((link) => (
+          {summary.links.map((link) => (
             <a
               key={link.label}
               href={link.url}
@@ -98,8 +99,8 @@ const Contributions = () => {
         className="text-text-secondary text-md space-y-6 leading-relaxed lg:max-w-xl"
       >
         <div className="space-y-6">
-          {ossProjects.map((project, index) => (
-            <OssCard key={project.name} project={project} index={index} />
+          {contributionSummaries.map((summary, index) => (
+            <OssCard key={summary.name} summary={summary} index={index} />
           ))}
         </div>
 
