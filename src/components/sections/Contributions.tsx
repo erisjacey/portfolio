@@ -1,10 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, GitPullRequest } from 'lucide-react'
-import { GitHubIcon } from '@/components/shared'
+import { ExternalLink, GitFork, GitPullRequest } from 'lucide-react'
+import { GitHubIcon, ArrowLink } from '@/components/shared'
 import {
-  personalProjects,
+  ossProjects,
+  contributions,
   projectTypeLabels,
   type Project,
 } from '@/constants/projects'
@@ -22,13 +23,7 @@ const getLinkIcon = (type: string) => {
   }
 }
 
-const ProjectCard = ({
-  project,
-  index,
-}: {
-  project: Project
-  index: number
-}) => {
+const OssCard = ({ project, index }: { project: Project; index: number }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -42,7 +37,8 @@ const ProjectCard = ({
         <h3 className="text-text-primary group-hover:text-accent text-lg font-semibold transition-colors">
           {project.name}
         </h3>
-        <span className="bg-accent/10 text-accent border-accent/20 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-xs font-medium">
+        <span className="bg-success/10 text-success border-success/20 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-xs font-medium">
+          <GitFork className="h-3 w-3" />
           {projectTypeLabels[project.type]}
         </span>
       </div>
@@ -56,23 +52,6 @@ const ProjectCard = ({
       <p className="text-text-secondary mb-4 text-sm leading-relaxed">
         {project.description}
       </p>
-
-      {/* Highlights */}
-      {project.highlights && project.highlights.length > 0 && (
-        <div className="mb-4">
-          <p className="text-text-secondary mb-2 text-xs font-semibold tracking-wider uppercase">
-            What I Built
-          </p>
-          <ul className="text-text-secondary space-y-1 text-sm">
-            {project.highlights.map((highlight, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="text-accent mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-current" />
-                {highlight}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       {/* Tech Stack */}
       <div className="mb-4 flex flex-wrap gap-2">
@@ -104,20 +83,13 @@ const ProjectCard = ({
           ))}
         </div>
       )}
-
-      {/* Coming Soon indicator for projects without links */}
-      {project.links.length === 0 && (
-        <p className="text-text-secondary font-mono text-sm italic">
-          Coming soon...
-        </p>
-      )}
     </motion.div>
   )
 }
 
-const Projects = () => {
+const Contributions = () => {
   return (
-    <section id="projects" className="section-spacing">
+    <section id="contributions" className="section-spacing">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -126,13 +98,17 @@ const Projects = () => {
         className="text-text-secondary text-md space-y-6 leading-relaxed lg:max-w-xl"
       >
         <div className="space-y-6">
-          {personalProjects.map((project, index) => (
-            <ProjectCard key={project.name} project={project} index={index} />
+          {ossProjects.map((project, index) => (
+            <OssCard key={project.name} project={project} index={index} />
           ))}
         </div>
+
+        <ArrowLink href="/contributions">
+          View all {contributions.length} contributions
+        </ArrowLink>
       </motion.div>
     </section>
   )
 }
 
-export default Projects
+export default Contributions

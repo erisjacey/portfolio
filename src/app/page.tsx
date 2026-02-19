@@ -2,6 +2,7 @@ import { Sidebar, MobileHeader } from '@/components/layout'
 import {
   About,
   Experience,
+  Contributions,
   Projects,
   Contact,
   Footer,
@@ -29,6 +30,7 @@ const Home = async () => {
           <MobileHeader />
           <About />
           <Experience />
+          <Contributions />
           <Projects />
           <Contact />
           <Footer />

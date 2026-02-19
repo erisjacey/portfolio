@@ -85,8 +85,8 @@ export const yagfiSummary: Project = {
     "Multiple contributions to an open-source project that helps developers find beginner-friendly issues. Implemented license features, country detection, and the project's first integration test.",
   techStack: YAGFI_REPO.repoTechStack,
   links: [
-    { label: 'Repo', url: YAGFI_REPO.repoUrl, type: 'github' },
     { label: 'Project', url: 'http://yagfi.com/', type: 'external' },
+    { label: 'Repo', url: YAGFI_REPO.repoUrl, type: 'github' },
   ],
   featured: true,
   createdAt: '2026-02-16',
