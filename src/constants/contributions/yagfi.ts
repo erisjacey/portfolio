@@ -6,8 +6,7 @@ import type { Contribution, ContributionSummary } from './types'
 const YAGFI_REPO = {
   repoName: 'YAGFI - yet another good first issue',
   repoUrl: 'https://github.com/Regyl/yagfi-back',
-  repoOneLiner:
-    'Contributing to a GitHub "good first issue" aggregator backend',
+  repoOneLiner: 'GitHub "good first issue" aggregator backend',
   repoTechStack: ['Java', 'Spring Boot'],
 }
 
