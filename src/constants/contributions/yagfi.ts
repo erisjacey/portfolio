@@ -14,6 +14,22 @@ const YAGFI_REPO = {
 export const yagfiContributions: Contribution[] = [
   {
     ...YAGFI_REPO,
+    prNumber: 116,
+    prUrl: 'https://github.com/Regyl/yagfi-back/pull/116',
+    prTitle: 'Maven Wrapper and Makefile',
+    description:
+      'Added Maven Wrapper and a Makefile as a task runner to streamline developer workflows. Provides discoverable, self-documenting targets for Docker, tests, checkstyle, and local development.',
+    highlights: [
+      'Maven Wrapper pinning Maven 3.9.12 for contributor consistency',
+      'Makefile with 11 .PHONY targets covering dev, test, DB, and build workflows',
+      'Self-documenting make help as default target',
+      'Updated CONTRIBUTING.md with Makefile references',
+    ],
+    additionalTech: ['Make', 'Maven'],
+    createdAt: '2026-03-08',
+  },
+  {
+    ...YAGFI_REPO,
     prNumber: 83,
     prUrl: 'https://github.com/Regyl/yagfi-back/pull/83',
     prTitle: 'User country detection',
@@ -80,11 +96,11 @@ export const yagfiSummary: ContributionSummary = {
   name: YAGFI_REPO.repoName,
   oneLiner: YAGFI_REPO.repoOneLiner,
   description:
-    "Multiple contributions to an open-source project that helps developers find beginner-friendly issues. Implemented license features, country detection, and the project's first integration test.",
+    "Multiple contributions to an open-source project that helps developers find beginner-friendly issues. Implemented license features, country detection, developer tooling (Makefile), and the project's first integration test.",
   techStack: YAGFI_REPO.repoTechStack,
   links: [
     { label: 'Project', url: 'http://yagfi.com/', type: 'external' },
     { label: 'Repo', url: YAGFI_REPO.repoUrl, type: 'github' },
   ],
-  createdAt: '2026-02-16',
+  createdAt: '2026-03-08',
 }
