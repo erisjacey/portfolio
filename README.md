@@ -77,10 +77,11 @@ src/
 │   └── contributions/      # OSS contributions page
 │       ├── page.tsx
 │       └── ContributionCards.tsx
-├── components/             # React components
+├── components/             # React components (each folder has a barrel index.ts)
 │   ├── sections/           # Page content sections
 │   │   ├── About.tsx
 │   │   ├── Experience.tsx
+│   │   ├── Contributions.tsx
 │   │   ├── Projects.tsx
 │   │   ├── Contact.tsx
 │   │   └── Footer.tsx
@@ -94,17 +95,21 @@ src/
 │   └── shared/             # Reusable components
 │       ├── Icons.tsx
 │       └── ArrowLink.tsx
-├── constants/              # Shared constants
+├── constants/              # Content authored as typed data
 │   ├── layout.ts           # Layout constants (desktop breakpoint)
 │   ├── experience.ts       # Work experience data
 │   ├── siteMetadata.ts     # Centralized site config (name, URLs, descriptions)
 │   ├── socialLinks.tsx     # Social link icons and URLs
 │   ├── statsConfig.ts      # Stats configuration (usernames, career start)
-│   └── projects/           # Projects data (modular structure)
-│       ├── index.ts        # Aggregates projects + contributions
-│       ├── types.ts        # Project and Contribution interfaces
-│       ├── yagfi.ts        # YAGFI OSS contributions (per-PR + summary)
-│       └── pantrypal.ts    # PantryPal personal project
+│   ├── projects/           # Personal projects (modular — one file per project)
+│   │   ├── index.ts        # Aggregates + sorts by createdAt
+│   │   ├── types.ts        # Project interfaces
+│   │   ├── takeleavesg.ts  # TakeLeave.sg personal project
+│   │   └── pantrypal.ts    # PantryPal personal project
+│   └── contributions/      # OSS contributions (modular — one file per repo)
+│       ├── index.ts        # Aggregates summaries + per-PR cards, sorted
+│       ├── types.ts        # ContributionSummary and Contribution interfaces
+│       └── yagfi.ts        # YAGFI OSS contributions (per-PR + summary)
 └── lib/                    # Utility functions
     ├── fetchStats.ts       # Server-side stats fetching (GitHub, LeetCode APIs)
     └── formatters.ts       # Utilities (date formatting, sorting)
