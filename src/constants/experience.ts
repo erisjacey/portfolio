@@ -1,12 +1,16 @@
 // Experience/work history data
 
-export interface Experience {
-  company: string
-  role: string
-  team?: string
-  location: string
+export interface Role {
+  title: string
   startDate: string // YYYY-MM format
   endDate?: string // YYYY-MM format, undefined = Present
+}
+
+export interface Experience {
+  company: string
+  roles: Role[] // Newest first — most recent role leads the progression
+  team?: string
+  location: string
   highlights: string[]
   techStack: string[]
 }
@@ -14,10 +18,12 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     company: 'Visa',
-    role: 'Software Engineer',
+    roles: [
+      { title: 'Senior Software Engineer', startDate: '2026-07' },
+      { title: 'Software Engineer', startDate: '2023-06', endDate: '2026-06' },
+    ],
     team: 'Value-Added Services (Transaction Services)',
     location: 'Singapore',
-    startDate: '2023-06',
     highlights: [
       'Own and maintain critical Visa Transaction Controls and Visa Flexible Credentials APIs integrated with VisaNet, serving issuer applications with sub-300ms response times and 99.999% availability',
       'Led development of real-time operational analytics platform providing granular DB performance metrics, reducing incident remediation time by 50%+ through pre-emptive anomaly detection',

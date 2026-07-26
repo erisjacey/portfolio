@@ -29,26 +29,44 @@ const ExperienceCard = ({
 
       {/* Content */}
       <div className="pl-8">
-        {/* Date range */}
-        <p className="text-accent mb-1 font-mono text-sm">
-          {formatDateRange(experience.startDate, experience.endDate)}
-        </p>
-
-        {/* Role & Company */}
-        <h3 className="text-text-primary mb-1 text-lg font-semibold">
-          {experience.role}{' '}
-          <span className="text-text-secondary font-normal">@</span>{' '}
+        {/* Overall tenure · Company · Location */}
+        <div className="text-text-secondary mb-2 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-sm">
+          <span className="text-accent">
+            {formatDateRange(
+              experience.roles[experience.roles.length - 1].startDate,
+              experience.roles[0].endDate,
+            )}
+          </span>
+          <span>·</span>
           <span className="text-accent">{experience.company}</span>
-        </h3>
-
-        {/* Team & Location */}
-        <div className="text-text-secondary mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-          {experience.team && <span>{experience.team}</span>}
+          <span>·</span>
           <span className="flex items-center gap-1">
             <MapPin className="h-3 w-3" />
             {experience.location}
           </span>
         </div>
+
+        {/* Role progression (newest first) */}
+        <ul className="mb-2 space-y-1">
+          {experience.roles.map((role) => (
+            <li
+              key={role.title}
+              className="flex flex-col sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-2"
+            >
+              <h3 className="text-text-primary text-lg font-semibold">
+                {role.title}
+              </h3>
+              <span className="text-text-secondary font-mono text-xs">
+                {formatDateRange(role.startDate, role.endDate)}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Team */}
+        {experience.team && (
+          <p className="text-text-secondary mb-3 text-sm">{experience.team}</p>
+        )}
 
         {/* Highlights */}
         <ul className="text-text-secondary mb-4 space-y-2 text-sm leading-relaxed">
@@ -90,7 +108,7 @@ const Experience = () => {
         <div className="space-y-8">
           {experiences.map((experience, index) => (
             <ExperienceCard
-              key={`${experience.company}-${experience.startDate}`}
+              key={experience.company}
               experience={experience}
               index={index}
             />
