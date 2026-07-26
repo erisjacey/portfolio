@@ -38,18 +38,30 @@ const fetchGitHubCommits = async (): Promise<number> => {
   }
 }
 
-// Fetch LeetCode solved count using unofficial API
+// Fetch LeetCode solved count using the official GraphQL API
 const fetchLeetCodeSolved = async (): Promise<number> => {
   try {
-    const response = await fetch(
-      `https://leetcode-stats-api.herokuapp.com/${statsConfig.leetcode.username}`,
-      { next: { revalidate: 86400 } }, // Cache for 24 hours
-    )
+    const response = await fetch('https://leetcode.com/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Referer: 'https://leetcode.com',
+      },
+      body: JSON.stringify({
+        query:
+          'query userProblemsSolved($username: String!) { matchedUser(username: $username) { submitStatsGlobal { acSubmissionNum { difficulty count } } } }',
+        variables: { username: statsConfig.leetcode.username },
+      }),
+      next: { revalidate: 86400 }, // Cache for 24 hours
+    })
     if (!response.ok) {
       throw new Error('LeetCode API failed')
     }
     const data = await response.json()
-    return data.totalSolved ?? statsConfig.fallback.leetcodeSolved
+    const counts = data?.data?.matchedUser?.submitStatsGlobal
+      ?.acSubmissionNum as { difficulty: string; count: number }[] | undefined
+    const all = counts?.find((item) => item.difficulty === 'All')
+    return all?.count ?? statsConfig.fallback.leetcodeSolved
   } catch {
     return statsConfig.fallback.leetcodeSolved
   }

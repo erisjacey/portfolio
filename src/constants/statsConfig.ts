@@ -8,11 +8,11 @@ export const statsConfig = {
     username: 'erisjacey',
   },
   careerStartDate: '2023-06-26',
-  divesLogged: 81,
+  divesLogged: 100,
 
   // Fallback values if APIs fail
   fallback: {
     githubCommits: 123,
-    leetcodeSolved: 1000,
+    leetcodeSolved: 150,
   },
 }
