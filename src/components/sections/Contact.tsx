@@ -3,6 +3,7 @@
 import { FormEvent, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send } from 'lucide-react'
+import { siteMetadata } from '@/constants/siteMetadata'
 
 const Contact = () => {
   const [name, setName] = useState('')
@@ -21,7 +22,7 @@ const Contact = () => {
         .join('\n'),
     )
 
-    window.location.href = `mailto:hello@erisjacey.dev?subject=${subject}&body=${body}`
+    window.location.href = `mailto:${siteMetadata.email}?subject=${subject}&body=${body}`
   }
 
   return (
@@ -92,13 +93,13 @@ const Contact = () => {
 
           <div className="flex gap-4">
             <a
-              href="mailto:hello@erisjacey.dev"
+              href={`mailto:${siteMetadata.email}`}
               className="border-border text-text-primary hover:border-accent hover:text-accent glow-on-hover flex-1 rounded-lg border px-6 py-3 text-center transition-all"
             >
               Email
             </a>
             <a
-              href="https://www.linkedin.com/in/eris-jacey-masagca-309795197/"
+              href={siteMetadata.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="border-border text-text-primary hover:border-accent hover:text-accent glow-on-hover flex-1 rounded-lg border px-6 py-3 text-center transition-all"

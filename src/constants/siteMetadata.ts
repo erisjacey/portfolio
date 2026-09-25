@@ -1,9 +1,9 @@
 export const siteMetadata = {
   name: 'Eris Jacey Masagca',
-  jobTitle: 'Backend Engineer',
+  jobTitle: 'Senior Software Engineer',
   employer: 'Visa',
   siteUrl: 'https://erisjacey.dev',
-  email: 'hello@erisjacey.dev',
+  email: 'eris.jacey@gmail.com',
   locale: 'en_SG',
 
   // Computed
@@ -20,7 +20,7 @@ export const siteMetadata = {
   // Social links (URLs only - icons are in socialLinks.tsx)
   social: {
     github: 'https://github.com/erisjacey',
-    linkedin: 'https://www.linkedin.com/in/eris-jacey-masagca-309795197/',
+    linkedin: 'https://www.linkedin.com/in/eris-jacey-masagca',
   },
 
   keywords: [
