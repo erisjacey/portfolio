@@ -8,7 +8,7 @@ export const statsConfig = {
     username: 'erisjacey',
   },
   careerStartDate: '2023-06-26',
-  divesLogged: 100,
+  divesLogged: 107,
 
   // Fallback values if APIs fail
   fallback: {
