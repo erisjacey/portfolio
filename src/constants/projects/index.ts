@@ -12,3 +12,6 @@ export const projects = sortByDateDesc([
   ...takeleavesgProjects,
   ...pantrypalProjects,
 ])
+
+// Homepage project cards (featured only)
+export const featuredProjects = projects.filter((project) => project.featured)

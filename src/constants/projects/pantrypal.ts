@@ -12,7 +12,6 @@ export const pantrypalProjects: Project[] = [
     links: [
       // TODO: Add links when project is public
     ],
-    featured: true,
     createdAt: '2025-01-01',
   },
 ]

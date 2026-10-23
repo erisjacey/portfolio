@@ -23,6 +23,7 @@ export const dailykopiProjects: Project[] = [
         type: 'github',
       },
     ],
+    featured: true,
     createdAt: '2026-10-23',
   },
 ]

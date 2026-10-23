@@ -1,8 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ProjectCard } from '@/components/shared'
-import { projects } from '@/constants/projects'
+import { ArrowLink, ProjectCard } from '@/components/shared'
+import { featuredProjects, projects } from '@/constants/projects'
 
 const Projects = () => {
   return (
@@ -15,10 +15,14 @@ const Projects = () => {
         className="text-text-secondary text-md space-y-6 leading-relaxed lg:max-w-xl"
       >
         <div className="space-y-6">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
           ))}
         </div>
+
+        <ArrowLink href="/projects">
+          View all {projects.length} projects
+        </ArrowLink>
       </motion.div>
     </section>
   )
