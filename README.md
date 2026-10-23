@@ -30,6 +30,7 @@ A modern, minimalist portfolio website built with Next.js 16, featuring a dark u
 - Work experience timeline with resume download
 - Projects showcase with Personal/OSS Contribution type badges
 - Dedicated `/contributions` page with individual per-PR cards and staggered animations
+- Dedicated `/projects` page with expandable project cards
 
 ## Design Theme
 
@@ -74,9 +75,11 @@ src/
 │   ├── page.tsx            # Home page
 │   ├── robots.ts           # SEO robots.txt generation
 │   ├── sitemap.ts          # SEO sitemap generation
-│   └── contributions/      # OSS contributions page
-│       ├── page.tsx
-│       └── ContributionCards.tsx
+│   ├── contributions/      # OSS contributions page
+│   │   ├── page.tsx
+│   │   └── ContributionCards.tsx
+│   └── projects/           # Personal projects page
+│       └── page.tsx
 ├── components/             # React components (each folder has a barrel index.ts)
 │   ├── sections/           # Page content sections
 │   │   ├── About.tsx
@@ -94,7 +97,8 @@ src/
 │   │   └── MobileHeader.tsx
 │   └── shared/             # Reusable components
 │       ├── Icons.tsx
-│       └── ArrowLink.tsx
+│       ├── ArrowLink.tsx
+│       └── ProjectCard.tsx
 ├── constants/              # Content authored as typed data
 │   ├── layout.ts           # Layout constants (desktop breakpoint)
 │   ├── experience.ts       # Work experience data
@@ -104,6 +108,7 @@ src/
 │   ├── projects/           # Personal projects (modular — one file per project)
 │   │   ├── index.ts        # Aggregates + sorts by createdAt
 │   │   ├── types.ts        # Project interfaces
+│   │   ├── dailykopi.ts    # Daily Kopi personal project
 │   │   ├── takeleavesg.ts  # TakeLeave.sg personal project
 │   │   └── pantrypal.ts    # PantryPal personal project
 │   └── contributions/      # OSS contributions (modular — one file per repo)
