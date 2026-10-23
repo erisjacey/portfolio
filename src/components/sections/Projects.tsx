@@ -56,7 +56,7 @@ const ProjectCard = ({
       {/* Highlights */}
       {project.highlights && project.highlights.length > 0 && (
         <div className="mb-4">
-          <p className="text-text-secondary mb-2 text-xs font-semibold tracking-wider uppercase">
+          <p className="text-text-secondary mb-2 text-xs font-semibold tracking-wider">
             What I Built
           </p>
           <ul className="text-text-secondary space-y-1 text-sm">

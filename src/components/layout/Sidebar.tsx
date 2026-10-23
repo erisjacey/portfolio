@@ -161,7 +161,7 @@ const Sidebar = ({ stats }: SidebarProps) => {
                   }`}
                 />
                 <span
-                  className={`text-md font-mono tracking-wider uppercase transition-colors ${
+                  className={`text-md font-mono transition-colors ${
                     isActive
                       ? 'text-text-primary font-bold'
                       : 'text-text-secondary group-hover:text-text-primary'
