@@ -48,9 +48,11 @@ const ProjectCard = ({
         <h3 className="text-text-primary group-hover:text-accent text-lg font-semibold transition-colors">
           {project.name}
         </h3>
-        <span className="bg-accent/10 text-accent border-accent/20 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-xs font-medium">
-          Personal
-        </span>
+        {!expandable && (
+          <span className="bg-accent/10 text-accent border-accent/20 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-xs font-medium">
+            Personal
+          </span>
+        )}
       </div>
 
       {/* One-liner */}
