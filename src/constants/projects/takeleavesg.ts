@@ -23,7 +23,7 @@ export const takeleavesgProjects: Project[] = [
         type: 'external',
       },
       {
-        label: 'GitHub',
+        label: 'Repo',
         url: 'https://github.com/erisjacey/take-leave',
         type: 'github',
       },

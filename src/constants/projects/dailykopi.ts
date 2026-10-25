@@ -18,7 +18,7 @@ export const dailykopiProjects: Project[] = [
     ],
     links: [
       {
-        label: 'GitHub',
+        label: 'Repo',
         url: 'https://github.com/erisjacey/daily-kopi',
         type: 'github',
       },
